@@ -7,8 +7,9 @@ import NavBar from "./NavBar";
 
 function App(){
     return(
-        <div className="App">
-            <NavBar/> 
+        <div>
+            <h1> Hello world</h1>
+        {/*    <NavBar/> 
             <Switch>
                 <Route path="/" exact component={Home}/>
                 <Route path="/about" exact component={About}/>
@@ -17,7 +18,9 @@ function App(){
                 <Route path='/not-found' component={NotFound}/>
                 <Route path='/' exact component={LandingScreen}/>
                 <Redirect to='/not-found'/>
-            </Switch>
+        </Switch>*/}
         </div>
     );
 }
+
+export default App;
