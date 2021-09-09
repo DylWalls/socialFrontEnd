@@ -11,9 +11,8 @@ const Profile = ({ createUser, deleteUser }) => {
     <div>
 
       <h2>My Profile</h2>
-      <Profile />
       <form>
-        <input></input>
+        
       </form>
     </div>
   );

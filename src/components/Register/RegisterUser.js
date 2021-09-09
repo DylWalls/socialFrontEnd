@@ -11,9 +11,8 @@ const Register = ({ createUser, deleteUser }) => {
     <div>
 
       <h2>Register Here</h2>
-      <Register />
       <form>
-        <input>Username:</input>
+        <input type="text" />
       </form>
     </div>
   );

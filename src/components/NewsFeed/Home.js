@@ -11,9 +11,8 @@ const Home = ({ createUser, deleteUser }) => {
     <div>
 
       <h2>Most recent</h2>
-      <Home />
       <form>
-        <input></input>
+        
       </form>
     </div>
   );
