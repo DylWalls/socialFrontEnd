@@ -1,23 +1,64 @@
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
+import React, { useState } from "react";
+// import { Navbar } from "react-bootstrap";
+// import { Container } from "react-bootstrap";
+// import { Nav } from "react-bootstrap";
+// import { NavDropdown } from "react-bootstrap";
 
-function NavBar(){
 
-    return(
-        <nav>
-            <ul>
-                <Link to='/'>
-                    <li>Home</li>
-                </Link>
-                <Link to='/about'>
-                    <li>About</li>
-                </Link>
-                <Link to='/list'>
-                    <li>List</li>
-                </Link>
-            </ul>
-        </nav>
-    );
+function NavBar() {
+  return (
+
+    <nav>
+        <ul>
+            <Link to="/">
+                <li>
+                    Home
+                </li>
+            </Link>
+            <Link to="/list">
+                <li>
+                   list
+                </li>
+            </Link>
+            <Link to="/profile">
+                <li>
+                    Profile
+                </li>
+            </Link>
+            <Link to="/register">
+                <li>
+                    Register
+                </li>
+            </Link>
+        </ul>
+    </nav>
+
+
+    // <Navbar bg="light" expand="lg">
+    //   <Container>
+    //     <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+    //     <Navbar.Toggle aria-controls="basic-navbar-nav" />
+    //     <Navbar.Collapse id="basic-navbar-nav">
+    //       <Nav className="me-auto">
+    //         <Nav.Link href="#home">Home</Nav.Link>
+    //         <Nav.Link href="#link">Link</Nav.Link>
+    //         <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+    //           <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+    //           <NavDropdown.Item href="#action/3.2">
+    //             Another action
+    //           </NavDropdown.Item>
+    //           <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+    //           <NavDropdown.Divider />
+    //           <NavDropdown.Item href="#action/3.4">
+    //             Separated link
+    //           </NavDropdown.Item>
+    //         </NavDropdown>
+    //       </Nav>
+    //     </Navbar.Collapse>
+    //   </Container>
+    // </Navbar>
+  );
 }
-
 
 export default NavBar;
