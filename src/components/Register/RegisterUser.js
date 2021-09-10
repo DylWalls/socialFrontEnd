@@ -8,17 +8,15 @@ const Register = ({ createUser, deleteUser }) => {
   //   setNewUser(event.target.value);
   // };
 
-  
 
-  const registerUser = ()=>{
-    axios.post('http://localhost:5000/api/users',{
-      userName:"Dylan,Asia,Zach,caleb" ,
-      email:"Dylan,Asia,Zach,caleb@gmail.com",
-      password:"Dylan,Asia,Zach,caleb"
+  const registerUser = async()=>{
+    const response = await axios.post('http://localhost:5000/api/auth',{
+      email:"",
+      password:""
     })
-    .then(response=> setUser(response.data))
+    .then(response=> setUser(response))
     .catch(error => console.log(error))
-
+    console.log(response)
   }
 
   useEffect(() => {
