@@ -12,7 +12,7 @@ const Profile = ({ createUser, deleteUser }) => {
 
       <h2>My Profile</h2>
       <form>
-        
+        <input type="text" name="text" placeholder="Post Status...." />
       </form>
     </div>
   );

@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import jwtDecode from 'jwt-decode';
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,20 +9,46 @@ import {
 } from "react-router-dom";
 import NavBar from "./NavBar";
 import Register from "./Register/RegisterUser";
-import Profile from "./ProfilePage/Profile"
+import Login from "./Login/Login";
+import Profile from "./ProfilePage/Profile";
 import List from "./Friends/List";
 import Home from "./NewsFeed/Home";
 
 const App = () => {
+  const[user,setUser]= useState({});
+
+  useEffect(()=>{
+    const jwt = localStorage.getItem('token');
+
+    try{
+      const user =jwtDecode(jwt);
+      setUser({user})
+
+    }catch{}
+
+
+  },[])
+
+
   return (
     <Router>
       <div>
+     
         <h1> Social Seniors </h1>
         <NavBar />
+
         <Switch>
-           <Route path="/" exact component={Home}/>
-            <Route path="/list" exact component={List}/>
-            <Route path='/profile' component={Profile}/>
+          <Route path="/" exact component={Home} />
+          <Route path="/list" exact component={List} />
+          <Route path="/profile" render={props=>{
+            if(!user){
+              return <Redirect to="/login"/>
+            }else{
+              return <Profile {...props} user={user}/>
+            }
+          }}
+          />
+
           <Route path="/register" component={Register} />
           <Redirect to="/not-found" />
         </Switch>
