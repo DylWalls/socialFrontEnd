@@ -17,6 +17,8 @@ import Home from "./NewsFeed/Home";
 const App = () => {
   const[user,setUser]= useState({});
 
+  
+
   useEffect(()=>{
     const jwt = localStorage.getItem('token');
 
