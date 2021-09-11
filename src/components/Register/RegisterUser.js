@@ -11,7 +11,6 @@ const Register = ({ createUser, deleteUser }) => {
   //   setNewUser(event.target.value);
   // };
 
-  
 
   const registerUser = async()=>{
     await axios.post('http://localhost:5000/api/users',{
