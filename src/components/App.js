@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useState, useEffect } from "react";
 import jwtDecode from 'jwt-decode';
 import {
@@ -42,21 +41,35 @@ const App = () => {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/list" exact component={List} />
-          <Route path="/profile" render={props=>{
+          <Route path="/profile"/>
+          <Route path="/register" component={Register} />
+          <Route path="/Login" component={Login} render={props=> {
             if(!user){
-              return <Redirect to="/login"/>
-            }else{
+              return <Redirect to ="/register"/>
+            } 
+            if(user){
+              return <Redirect to="/" />
+            }
+            else{
               return <Profile {...props} user={user}/>
             }
-          }}
-          />
-
-          <Route path="/register" component={Register} />
-          <Redirect to="/not-found" />
+          }}/>
+          <Redirect to ="/not-found"/>
         </Switch>
       </div>
     </Router>
-  );
-};
+          );
+        };
 
 export default App;
+
+
+
+// <Route path="/Login"render={props=>{
+//   if(!user){
+//     return <Redirect to="/Login"/>
+//   }else{
+//     return <Register {...props} user={user}/>
+//   }
+// }}/>
+// <Redirect to="/not-found" />
