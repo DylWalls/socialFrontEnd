@@ -40,7 +40,7 @@ const Login = ({ createUser, deleteUser }) => {
         email:"",
         password:""
      };
-      axios.post('https://localhost:5000/api/users', user)
+      axios.post('http://localhost:5000/api/users', user)
           .then(response => setUser(response.data));
   
   // empty dependency array means this effect will only run once (like componentDidMount in classes)
@@ -55,7 +55,7 @@ const Login = ({ createUser, deleteUser }) => {
             type="email"
             name="email"
             placeholder="email..."
-            onChange={e=> setUser({...user, email: e.target.value})} value={user.email}
+            onChange={e=> setUser({...user, email: e.target.value})} 
             />
           </div>
           <div>
@@ -63,7 +63,7 @@ const Login = ({ createUser, deleteUser }) => {
             type="password"
             name="password"
             placeholder="password..."
-            onChange={e=> setUser({...user, password: e.target.value})} value={user.password}
+            onChange={e=> setUser({...user, password: e.target.value})} 
             />
           </div>
           <div>
