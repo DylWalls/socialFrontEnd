@@ -4,7 +4,7 @@ import './NavBar.css';
 
 
 function NavBar() {
-  return (  
+  return (
     <nav>
         <div class='topnav'>
             <ul>
