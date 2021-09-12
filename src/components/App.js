@@ -12,6 +12,7 @@ import Login from "./Login/Login";
 import Profile from "./ProfilePage/Profile";
 import List from "./Friends/List";
 import Home from "./NewsFeed/Home";
+import "./App.css";
 
 const App = () => {
   const[user,setUser]= useState({});
@@ -34,8 +35,10 @@ const App = () => {
   return (
     <Router>
       <div>
-     
+        <div className='header'>
         <h1> Social Seniors </h1>
+        <h1>Your #1 Senior dating App!</h1>
+        </div>
         <NavBar />
 
         <Switch>
@@ -60,6 +63,8 @@ const App = () => {
     </Router>
           );
         };
+
+
 
 export default App;
 
