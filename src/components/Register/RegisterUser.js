@@ -62,7 +62,7 @@ const Register = ({ createNewUser, newError }) =>  {
             <input type="password" name="password" placeholder="password..." onChange={e=> setUser({...user, password: e.target.value})} value={user.password}  />
           </div>
           <div>
-            <button onClick={()=>{registerUser()}} >Login</button>
+            <button onClick={()=>{registerUser()}} >Register</button>
           </div>
         </form>
     </div>
