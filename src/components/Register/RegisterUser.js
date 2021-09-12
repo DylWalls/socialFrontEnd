@@ -1,4 +1,4 @@
-import React, { useState , useEffect} from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
 const Register = ({ createNewUser, newError }) =>  {
@@ -12,10 +12,6 @@ const Register = ({ createNewUser, newError }) =>  {
 
   }
   
-  // const handleChange = (event) => {
-  //   setNewUser(event.target.value);
-  // };
-
   const submitHandler = (e) => {
     e.preventDefault();
 
@@ -31,39 +27,24 @@ const Register = ({ createNewUser, newError }) =>  {
     })
     .then((res) => {
       console.log(res)
-      localStorage.getItem("token" ,res.data)
-      console.log(user)
+      setUser(res);
     })
     .catch(error => console.log(error));
 
   }
-
-
-  useEffect(() => {
-    // POST request using axios inside useEffect React hook
-    const user = {
-      userName: userName,
-      email: email,
-      password: password,
-   };
-    axios.post('http://localhost:5000/api/users', user)
-        .then(response => setUser(response.data));
-
-// empty dependency array means this effect will only run once (like componentDidMount in classes)
-}, [userName,email,password]);
 
   return (
     <div>
         <h2>Register</h2>
         <form onSubmit={submitHandler}>
           <div>
-            <input type="email" name="email" placeholder="email..." onChange ={e=> setUser({...user, email: e.target.value})}/>
+            <input type="email" name="email" placeholder="email..." onChange ={e=> setEmail(e.target.value)}/>
           </div>
           <div>
-            <input type="name" name="name" placeholder="userName..." onChange={e=> setUser({...user, userName: e.target.value})}/>
+            <input type="name" name="name" placeholder="userName..." onChange={e=> setUserName(e.target.value)}/>
           </div>
             <div>
-            <input type="password" name="password" placeholder="password..." onChange={e=> setUser({...user, password: e.target.value})}/>
+            <input type="password" name="password" placeholder="password..." onChange={e=> setPassword(e.target.value)}/>
           </div>
           <div>
             <button onClick={()=>{registerUser()}} >Register</button>
