@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import e from 'cors';
 
 
 const Login = ({ createUser, deleteUser }) => {
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState({name:"", email:"", password:""});
     const [email,setEmail] = useState("");
     const [password, setPassword] = useState("")
   
-    // const handleChange = (event) => {
-    //   setNewUser(event.target.value);
-    // };
+    const submitHandler = (e) => {
+      e.preventDefault();
+
+    };
   
     const loginUser = async ()=>{
       await axios.post('http://localhost:5000/api/auth',{
@@ -26,6 +28,11 @@ const Login = ({ createUser, deleteUser }) => {
       console.log(user)
     }
 
+    const logOut = (() => {
+      console.log(logOut)
+
+    })
+
     useEffect(() => {
       // POST request using axios inside useEffect React hook
       const user = {
@@ -41,28 +48,33 @@ const Login = ({ createUser, deleteUser }) => {
     return(
         <div>
         <h2>Log In</h2>
-        <form onSubmit={useState.handleSubmit}>
-          <ul>
+        <form onSubmit={submitHandler}>
+          <div>
             <input
-              type="email"
-              name="email"
-              placeholder="email..."
-              onChange={useState.handleChange}
+            type="email"
+            name="email"
+            placeholder="email..."
+            onChange={useState.handleChange}
             />
+          </div>
+          <div>
             <input
             type="name"
             name="name"
             placeholder="Username..."
             />
+          </div>
+            <div>
             <input
             type="password"
             name="password"
             placeholder="password..."
             />
+          </div>
+          <div>
             <button onClick={()=>{loginUser()}} >Login</button>
-          </ul>
-       </form>
-            
+          </div>
+        </form>
         </div>
     )
 }
