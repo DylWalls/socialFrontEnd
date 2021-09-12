@@ -2,9 +2,11 @@ import React, { useState , useEffect} from "react";
 import axios from "axios";
 
 const Register = ({ createNewUser, newError }) =>  {
-  const [user, setUser] = useState({userName:"", email:"", password:""})
-  const [error,setError] = useState("");
-
+  const [user, setUser] = useState({userName:"", email:"", password:""});
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassWord] = useState("");
+  
   const createUser = user =>{
     console.log(user)
 
@@ -23,9 +25,9 @@ const Register = ({ createNewUser, newError }) =>  {
 
   const registerUser = async()=>{
     await axios.post('http://localhost:5000/api/users',{
-      userName: "",
-      email: "",
-      password: "",
+      userName: userName,
+      email: email,
+      password: password,
     })
     .then((res)=> {
       console.log(res)
@@ -40,9 +42,9 @@ const Register = ({ createNewUser, newError }) =>  {
   useEffect(() => {
     // POST request using axios inside useEffect React hook
     const user = {
-      userName:"",
-      email: "",
-      password:"",
+      userName: userName,
+      email: email,
+      password: password,
    };
     axios.post('https://localhost:5000/api/users', user)
         .then(response => setUser(response.data));
@@ -55,13 +57,13 @@ const Register = ({ createNewUser, newError }) =>  {
         <h2>Register</h2>
         <form onSubmit={submitHandler}>
           <div>
-            <input type="email" name="email" placeholder="email..." onChange={e=> setUser({...user, email: e.target.value})} value={user.email} />
+            <input type="email" name="email" placeholder="email..." onChange={e=> setUser({...email, email: e.target.value})}/>
           </div>
           <div>
-            <input type="name" name="name" placeholder="userName..." onChange={e=> setUser({...user, userName: e.target.value})} value={user.userName}/>
+            <input type="name" name="name" placeholder="userName..." onChange={e=> setUser({...userName, userName: e.target.value})}/>
           </div>
             <div>
-            <input type="password" name="password" placeholder="password..." onChange={e=> setUser({...user, password: e.target.value})} value={user.password}  />
+            <input type="password" name="password" placeholder="password..." onChange={e=> setUser({...password, password: e.target.value})}/>
           </div>
           <div>
             <button onClick={()=>{registerUser()}} >Register</button>

@@ -67,14 +67,3 @@ const App = () => {
 
 
 export default App;
-
-
-
-// <Route path="/Login"render={props=>{
-//   if(!user){
-//     return <Redirect to="/Login"/>
-//   }else{
-//     return <Register {...props} user={user}/>
-//   }
-// }}/>
-// <Redirect to="/not-found" />
