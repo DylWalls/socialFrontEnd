@@ -17,7 +17,8 @@ const Home = ({ createUser, deleteUser }) => {
         <h2>News Feed</h2>
         <h4>Stacked cards displaying friend's status and post's</h4>
       </div> 
-      <div class="column side">   
+      <div class="column side"> 
+        <h2>Lets post an update!</h2> 
         <form>
           <input type="text" name="text" placeholder="Post Status...." />
         </form>
