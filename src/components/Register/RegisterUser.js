@@ -5,8 +5,9 @@ const Register = ({ createNewUser, newError }) =>  {
   const [user, setUser] = useState({userName:"", email:"", password:""})
   const [error,setError] = useState("");
 
-  const createUser = userInput =>{
-    console.log(userInput)
+  const createUser = user =>{
+    console.log(user)
+
   }
   
   // const handleChange = (event) => {
@@ -27,7 +28,8 @@ const Register = ({ createNewUser, newError }) =>  {
       password: "",
     })
     .then((res)=> {
-      setUser(res)
+      console.log(res)
+      localStorage.getItem("token" ,res.data)
       console.log(user)
     })
     .catch(error => console.log(error));
